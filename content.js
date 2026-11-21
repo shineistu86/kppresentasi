@@ -66,15 +66,20 @@ window.CONTENT = {
     },
     {
       no: 2, title: "Latar Belakang", dur: "± 1 menit",
-      baby: "BAPENDA punya 50.000 gambar batas tanah, tapi masih berupa kode, belum diukur, dan terlalu banyak kalau dicek satu-satu.",
+      baby: "BAPENDA punya 50.000 gambar batas tanah, tapi masih berupa kode dan belum diukur. Kalau petugas mau tahu tanah mana yang bentuknya aneh, mereka harus buka peta dan lihat tanahnya satu-satu, padahal ada 50.000. Lama sekali. Hasil hitungan juga cuma berupa tabel angka, jadi tidak kelihatan tanahnya ada di desa mana.",
       say: [
         "BAPENDA Garut mengelola Pajak Bumi dan Bangunan melalui sistem SAPADA. Di dalamnya ada data **50.000 polygon** atau garis batas bidang tanah, dari **132 dari 442 desa/kelurahan**.",
         "Masalahnya ada tiga.",
         "- **Pertama**, bentuk tanahnya masih tersimpan sebagai **kode biner WKB**, jadi belum bisa langsung dianalisis.",
         "- **Kedua**, belum ada **ukuran numerik** tentang ukuran dan bentuk tiap bidang, misalnya seberapa luas dan seberapa rapi bentuknya.",
-        "- **Ketiga**, kalau 50.000 bidang dicek **manual satu per satu**, jelas tidak efisien, dan belum ada **peta interaktif** untuk melihatnya."
+        "- **Ketiga**, pemeriksaannya masih **manual**. Data batas dan luas bidang tanah dipakai sebagai dasar PBB, jadi kualitasnya perlu dijaga. Kalau petugas ingin tahu bidang mana yang bentuknya tidak biasa dan perlu dicek lebih dulu, caranya sekarang adalah membuka peta lalu melihat bidangnya **satu per satu**. Dengan **50.000 bidang**, cara ini sangat lama. Selain itu, hasil pengolahan biasanya hanya berupa **tabel angka**, sehingga belum ada **peta interaktif** untuk melihat di desa mana bidang-bidang itu berada."
       ],
       nums: ["50.000 polygon", "132 dari 442 desa"],
+      note: [
+        "**Maksud \"dicek manual satu per satu\":** petugas membuka peta di SAPADA atau aplikasi GIS, memperbesar satu bidang, melihat bentuk batasnya, lalu pindah ke bidang berikutnya, sampai 50.000 kali. Belum ada angka yang bisa langsung menunjukkan bidang mana yang bentuknya berbeda dari kebanyakan.",
+        "**Kalau ditanya \"dicek untuk apa?\":** PBB-P2 dihitung berdasarkan data fisik objek pajak, termasuk batas, luas, dan letak bidang tanah (PMK 85/2024). Bidang yang bentuknya tidak biasa bisa memang begitu kondisi lapangannya, tetapi bisa juga karena batasnya salah digambar. Pengecekan dilakukan untuk menjaga kualitas data itu. Hasil KP saya tidak menggantikan pengecekan, tetapi membantu memilih bidang mana yang dicek lebih dulu.",
+        "**Ilustrasi hitung kasar (bukan angka dari laporan):** kalau satu bidang butuh 1 menit, 50.000 bidang = 50.000 menit ≈ 833 jam ≈ 104 hari kerja (8 jam/hari). Kalau dipakai saat presentasi, sebut sebagai \"ilustrasi\"."
+      ],
       bridge: "Dari tiga masalah itu, saya turunkan tiga tujuan."
     },
     {
@@ -271,6 +276,7 @@ window.CONTENT = {
   ],
 
   faq: [
+    ["Bidang tanahnya dicek untuk apa? Kenapa harus dicek?", "Data batas, luas, dan letak bidang tanah adalah dasar perhitungan PBB-P2 (PMK 85/2024), jadi kualitasnya perlu dijaga. Bidang yang bentuknya tidak biasa bisa memang begitu kondisi lapangannya, tetapi bisa juga karena batasnya salah digambar. Selama ini petugas harus membuka peta dan melihat bidangnya satu per satu, padahal ada 50.000 bidang. Hasil KP saya membantu memilih bidang mana yang dicek lebih dulu (Cluster 1), bukan menggantikan pengecekan itu."],
     ["Kenapa K = 2, bukan lebih?", "Karena dari K = 2 sampai 10, Silhouette tertinggi ada di K = 2, yaitu 0,5903, kategori cukup baik. Mulai K = 3, nilainya turun ke kategori lemah (di bawah 0,5)."],
     ["Silhouette 0,59 itu bagus atau tidak?", "Termasuk kategori reasonable atau cukup baik, yaitu rentang 0,51–0,70. Belum sempurna, karena bentuk tanah di dunia nyata memang bergradasi, tidak terpisah tegas."],
     ["Compactness dan shape_index berkorelasi 0,978, kenapa dipakai dua-duanya?", "Betul, secara rumus shape_index = 1/√compactness, jadi informasinya sangat mirip. Keduanya saya pertahankan sebagai wakil dimensi bentuk. Konsekuensinya, bentuk berbobot lebih besar daripada ukuran dalam K-Means. Ini saya akui sebagai keterbatasan, dan bisa diuji lagi dengan memakai salah satunya saja."],

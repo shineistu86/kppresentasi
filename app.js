@@ -47,7 +47,7 @@
       `<a href="#${id}" data-slide="${s.no}" class="${s.backup ? "nav-backup" : ""}"><span class="nav-no">${s.no}</span>${esc(s.title)}${s.key ? ' <span class="star">★</span>' : ""}<span class="nav-check">${done[s.no] ? "✓" : ""}</span></a>`);
 
     const nums = s.nums && s.nums.length ? `<div class="block nums"><div class="block-label">🔢 Angka wajib ingat</div><div class="chips">${s.nums.map((n) => `<span class="chip">${esc(n)}</span>`).join("")}</div></div>` : "";
-    const note = s.note ? `<div class="block note">💬 ${md(s.note)}</div>` : "";
+    const note = [].concat(s.note || []).map((n) => `<div class="block note">💬 ${md(n)}</div>`).join("");
     const warn = s.warn ? `<div class="block warn">⚠️ ${md(s.warn)}</div>` : "";
     const ask = s.ask ? `<div class="block ask">🙋 <b>Buka slide ini kalau ditanya:</b> ${md(s.ask)}</div>` : "";
     const bridge = s.bridge ? `<div class="block bridge"><span class="bridge-arrow">➜</span><div><div class="block-label">Jembatan ke slide ${s.no + 1}</div>“${md(s.bridge)}”</div></div>` : "";
