@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Persiapan Sidang KP – Hisyam Eka Pramudita</title>
+  <meta name="description" content="Script dan pemahaman presentasi sidang Kerja Praktik: Dashboard Profil Morfometri Polygon Bidang Tanah Berbasis K-Means di BAPENDA Garut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    <div class="brand">
+      <span class="brand-title">Persiapan Sidang KP</span>
+      <span class="brand-sub">Hisyam Eka Pramudita · 2307016</span>
+    </div>
+    <div class="progress" title="Slide yang sudah dilatih">
+      <div class="progress-bar"><span id="progressFill"></span></div>
+      <span id="progressText">0/13</span>
+    </div>
+    <div class="timer" id="timer">
+      <span class="timer-display" id="timerDisplay">00:00</span>
+      <button id="timerToggle" class="btn-sm" aria-label="Mulai timer">▶</button>
+      <button id="timerReset" class="btn-sm ghost" aria-label="Reset timer">↺</button>
+    </div>
+    <button class="btn-mode" id="modeBtn" title="Hanya tampilkan kalimat yang diucapkan (tombol P)">🎤 Mode Latihan</button>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar">
+      <div class="nav-group">
+        <div class="nav-label">Mulai di sini</div>
+        <a href="#cerita">⭐ Cerita 30 detik</a>
+        <a href="#kamus">📖 Kamus bahasa bayi</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Script per slide</div>
+        <div id="navSlides"></div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Persiapan tanya jawab</div>
+        <a href="#faq">❓ Pertanyaan penguji</a>
+        <a href="#contekan">🔢 Contekan angka</a>
+        <a href="#tips">💡 Tips lancar</a>
+      </div>
+    </nav>
+
+    <main class="content" id="content">
+      <!-- HERO -->
+      <section id="cerita" class="hero section">
+        <div class="eyebrow">Kalau lupa semuanya, ingat ini</div>
+        <h1>Cerita besarnya dalam <span class="gold">30 detik</span></h1>
+        <div class="story" id="story"></div>
+        <div class="limit" id="storyLimit"></div>
+
+        <h3 class="mini-title">Alur angka dari awal sampai akhir</h3>
+        <div class="pipeline" id="pipeline"></div>
+
+        <h3 class="mini-title">Hasil akhirnya: dua kelompok</h3>
+        <div class="clusters">
+          <div class="cluster c0">
+            <svg viewBox="0 0 100 70" class="shape"><rect x="22" y="10" width="56" height="50" rx="3"/></svg>
+            <div>
+              <div class="cluster-name">Cluster 0 · <b>Rapi & kotak</b></div>
+              <div class="cluster-num">41.244 bidang · 82,5%</div>
+              <div class="cluster-desc">Padat, hampir tanpa lekukan, ±5 titik sudut</div>
+            </div>
+          </div>
+          <div class="cluster c1">
+            <svg viewBox="0 0 100 70" class="shape"><polygon points="6,52 30,18 52,26 70,8 94,20 78,40 56,36 34,62"/></svg>
+            <div>
+              <div class="cluster-name">Cluster 1 · <b>Panjang & ribet</b></div>
+              <div class="cluster-num">8.750 bidang · 17,5%</div>
+              <div class="cluster-desc">Memanjang, ada lekukan, ±10 titik sudut, sedikit lebih luas</div>
+            </div>
+          </div>
+        </div>
+        <div class="ratio"><span class="r0" style="width:82.5%">82,5%</span><span class="r1" style="width:17.5%">17,5%</span></div>
+      </section>
+
+      <!-- KAMUS -->
+      <section id="kamus" class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Baca sekali sebelum latihan</div>
+            <h2>📖 Kamus bahasa bayi</h2>
+          </div>
+          <input type="search" id="glossSearch" class="search" placeholder="Cari istilah, mis. Silhouette…">
+        </div>
+        <div class="gloss-grid" id="glossGrid"></div>
+      </section>
+
+      <!-- SLIDES -->
+      <div class="slides-intro section">
+        <div class="eyebrow">Script per slide</div>
+        <h2>🎤 Yang diucapkan, slide demi slide</h2>
+        <div class="legend">
+          <span><i class="dot baby"></i>Bahasa bayi: untuk Anda pahami, bukan diucapkan</span>
+          <span><i class="dot say"></i>Yang diucapkan: ceritakan dengan kalimat sendiri</span>
+          <span><i class="dot nums"></i>Angka wajib ingat</span>
+          <span><i class="dot bridge"></i>Jembatan ke slide berikutnya</span>
+        </div>
+        <p class="hint">Target slide 1–13: <b>12–15 menit</b>. Klik gambar slide untuk memperbesar. Tekan <kbd>P</kbd> untuk Mode Latihan, lalu <kbd>←</kbd> <kbd>→</kbd> untuk pindah slide.</p>
+      </div>
+      <div id="slides"></div>
+
+      <!-- FAQ -->
+      <section id="faq" class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Jawab singkat, jujur, pakai angka</div>
+            <h2>❓ Pertanyaan yang mungkin muncul</h2>
+          </div>
+          <input type="search" id="faqSearch" class="search" placeholder="Cari pertanyaan…">
+        </div>
+        <div class="faq" id="faqList"></div>
+      </section>
+
+      <!-- CHEAT -->
+      <section id="contekan" class="section">
+        <div class="eyebrow">Satu layar, semua angka</div>
+        <h2>🔢 Contekan angka</h2>
+        <div class="cheat" id="cheat"></div>
+      </section>
+
+      <!-- TIPS -->
+      <section id="tips" class="section">
+        <div class="eyebrow">Supaya tidak "eee…"</div>
+        <h2>💡 Tips supaya lancar</h2>
+        <ol class="tips" id="tipsList"></ol>
+      </section>
+
+      <footer class="foot">
+        Dibuat untuk latihan sidang KP · Dashboard: <a href="https://kpdashboard.vercel.app/" target="_blank" rel="noopener">kpdashboard.vercel.app</a>
+      </footer>
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <img id="lightboxImg" alt="">
+    <button class="lb-close" aria-label="Tutup">✕</button>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
